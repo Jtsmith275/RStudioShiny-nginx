@@ -76,6 +76,48 @@ R -e "install.packages('shiny', repos='https://cran.rstudio.com/', lib='~/R/x86_
 
 install2.r --error \
     --deps TRUE \
+    shinydashboard \
+    ggplot2 \
+    plotly \
+    scales \
+    forcats \
+    stringr \
+    DT \
+    readxl \
+    tidyr \
+    zoo \
+    lubridate \
+    reshape2 \ 
+    lemon \
+    RColorBrewer \
+    networkD3 \ 
+    shinyWidgets \
+    shinyjs \ 
+    shinycssloaders \
+    openxlsx \
+    readr \
+    gcookbook \
+    ggrepel \
+    readODS \
+    doBy
+    rtweet \ 
+    httpuv \ 
+    purrr \ 
+    tm \ 
+    wordcloud \ 
+    jsonlite \ 
+    lda \ 
+    LDAvis \ 
+    udpipe \ 
+    lattice \ 
+    tidytext \
+    knitr \
+    rmarkdown \
+    readxl
+    
+    
+install2.r --error \
+    --deps TRUE \
     tidyverse \
     dplyr \
     devtools \
@@ -113,6 +155,8 @@ install2.r --error \
     geosphere \
     ## from bioconductor
     && R -e "BiocManager::install('rhdf5', update=FALSE, ask=FALSE)"
+
+R -e "install.packages(c('directlabels'), repos='http://r-forge.r-project.org/')"
 
 # Install Shiny-Server
 wget https://download3.rstudio.org/ubuntu-14.04/x86_64/shiny-server-1.5.14.948-amd64.deb
