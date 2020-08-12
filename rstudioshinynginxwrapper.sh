@@ -24,7 +24,7 @@ sudo apt-get install nginx -y
 sudo wget https://raw.githubusercontent.com/Jtsmith275/RStudioShiny-nginx/master/default -O /etc/nginx/sites-enabled/default
 
 # Install Ubuntu packages
-RUN apt-get update && apt-get install -y \
+sudo apt-get update && apt-get install -y \
     gdebi-core \
     pandoc \
     pandoc-citeproc \
@@ -34,7 +34,7 @@ RUN apt-get update && apt-get install -y \
     libssl-dev \
     libxml2-dev 	
     
-RUN apt-get update \
+sudo apt-get update \
   && apt-get install -y --no-install-recommends \
     lbzip2 \
     libfftw3-dev \
