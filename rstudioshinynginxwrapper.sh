@@ -113,7 +113,9 @@ install2.r --error \
     tidytext \
     knitr \
     rmarkdown \
-    readxl
+    readxl \
+    htmltools \
+    bs4Dash
     
     
 install2.r --error \
