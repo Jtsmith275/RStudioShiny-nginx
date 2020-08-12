@@ -21,11 +21,98 @@ rm rstudio-server-1.3.959-amd64.deb
 sudo apt-get install nginx -y
 
 # Configure nginx with RStudio-Server and Shiny-Server virtualhosts
-sudo wget https://raw.githubusercontent.com/jb2cool/RStudioShiny-nginx/master/default -O /etc/nginx/sites-enabled/default
+sudo wget https://raw.githubusercontent.com/Jtsmith275/RStudioShiny-nginx/master/default -O /etc/nginx/sites-enabled/default
+
+# Install Ubuntu packages
+RUN apt-get update && apt-get install -y \
+    gdebi-core \
+    pandoc \
+    pandoc-citeproc \
+    libcurl4-gnutls-dev \
+    libcairo2-dev \
+    libxt-dev \
+    libssl-dev \
+    libxml2-dev 	
+    
+RUN apt-get update \
+  && apt-get install -y --no-install-recommends \
+    lbzip2 \
+    libfftw3-dev \
+    libgdal-dev \
+    libgeos-dev \
+    libgsl0-dev \
+    libgl1-mesa-dev \
+    libglu1-mesa-dev \
+    libhdf4-alt-dev \
+    libhdf5-dev \
+    libjq-dev \
+    liblwgeom-dev \
+    libpq-dev \
+    libproj-dev \
+    libprotobuf-dev \
+    libnetcdf-dev \
+    libsqlite3-dev \
+    libudunits2-dev \
+    netcdf-bin \
+    postgis \
+    protobuf-compiler \
+    sqlite3 \
+    tk-dev \
+    unixodbc-dev \
+    libv8-dev \
+    libnode-dev \
+    libmariadbd-dev \
+    libmariadbclient-dev \
+    libcurl4-openssl-dev \
+    libssh2-1-dev 
+
+# add addition system dependencies but suffixing \ <package name> on the end of the apt-get update & apt-get install -y command
 
 # Install Shiny R package
 mkdir -p ~/R/x86_64-pc-linux-gnu-library/4.0
 R -e "install.packages('shiny', repos='https://cran.rstudio.com/', lib='~/R/x86_64-pc-linux-gnu-library/4.0')"
+
+#Install other common R packages
+
+install2.r --error \
+    --deps TRUE \
+    tidyverse \
+    dplyr \
+    devtools \
+    formatR \
+    remotes \
+    selectr \
+    caTools \
+	BiocManager \
+  && rm -rf /tmp/downloaded_packages
+
+install2.r --error \
+    RColorBrewer \
+    RandomFields \
+    RNetCDF \
+    classInt \
+    deldir \
+    gstat \
+    hdf5r \
+    lidR \
+    mapdata \
+    maptools \
+    mapview \
+    ncdf4 \
+    proj4 \
+    raster \
+    rgdal \
+    rgeos \
+    rlas \
+    sf \
+    sp \
+    spacetime \
+    spatstat \
+    spdep \
+    geoR \
+    geosphere \
+    ## from bioconductor
+    && R -e "BiocManager::install('rhdf5', update=FALSE, ask=FALSE)"
 
 # Install Shiny-Server
 wget https://download3.rstudio.org/ubuntu-14.04/x86_64/shiny-server-1.5.14.948-amd64.deb
