@@ -79,6 +79,7 @@ R -e "install.packages(c('tidyverse','dplyr','devtools','formatR','remotes','sel
  
 R -e "install.packages(c('RColorBrewer','RandomFields','RNetCDF','classInt','deldir','gstat','hdf5r','lidR','mapdata','maptools','mapview','ncdf4','proj4','raster','rgdal','rgeos','rlas','sf','sp','spacetime','spatstat','spdep','geoR','geosphere'), repos='http://r-forge.r-project.org/')"
 
+R -e "install.packages(c('forcats','shinycssloaders','odbc','fs','rlang','tibble','survey','stringr','survey','mosaic','DBI','fs','lubridate','magrittr','yaml','knitr','rmarkdown','testthat'))"
 
 R -e "install.packages(c('directlabels'), repos='http://r-forge.r-project.org/')" && rm -rf /tmp/downloaded_packages
 
