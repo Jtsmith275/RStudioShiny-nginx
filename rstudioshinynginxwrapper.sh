@@ -21,7 +21,7 @@ rm rstudio-server-1.3.959-amd64.deb
 sudo apt-get install nginx -y
 
 # Configure nginx with RStudio-Server and Shiny-Server virtualhosts
-sudo wget https://raw.githubusercontent.com/Jtsmith275/RStudioShiny-nginx/master/default -O /etc/nginx/sites-enabled/default
+sudo cp default /etc/nginx/sites-enabled/default
 
 # Install Ubuntu packages
 sudo apt-get update && sudo apt-get install -y \
@@ -78,8 +78,7 @@ R -e "install.packages(c('directlabels','shinydashboard','ggplot2','plotly','sca
 R -e "install.packages(c('tidyverse','dplyr','devtools','formatR','remotes','selectr','caTools','BiocManager',repos='https://cran.rstudio.com/', lib='~/R/x86_64-pc-linux-gnu-library/4.0'))"
  
 R -e "install.packages(c('RColorBrewer','RandomFields','RNetCDF','classInt','deldir','gstat','hdf5r','lidR','mapdata','maptools','mapview','ncdf4','proj4','raster','rgdal','rgeos','rlas','sf','sp','spacetime','spatstat','spdep','geoR','geosphere'), repos='http://r-forge.r-project.org/')"
-    ## from bioconductor
-    && R -e "BiocManager::install('rhdf5', update=FALSE, ask=FALSE)"
+
 
 R -e "install.packages(c('directlabels'), repos='http://r-forge.r-project.org/')"
  && rm -rf /tmp/downloaded_packages
