@@ -89,8 +89,8 @@ sudo gdebi --non-interactive shiny-server-1.5.14.948-amd64.deb
 rm shiny-server-1.5.14.948-amd64.deb
 
 # Configure Shiny-Server
+sudo cp shiny-server.conf /etc/shiny-server/shiny-server.conf
 sudo sed -i "s/run_as shiny/run_as $USER/" /etc/shiny-server/shiny-server.conf
-sudo sed -i "s/3838/ 3838 0.0.0.0/" /etc/shiny-server/shiny-server.conf
 sudo sed -i "s/site_dir \/srv\/shiny-server/site_dir \/home\/$USER\/shiny/" /etc/shiny-server/shiny-server.conf
 mkdir $HOME/shiny
 
