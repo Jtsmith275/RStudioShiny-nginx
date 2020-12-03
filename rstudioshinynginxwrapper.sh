@@ -84,9 +84,11 @@ R -e "install.packages(c('forcats','shinycssloaders','odbc','fs','rlang','tibble
 R -e "install.packages(c('directlabels'), repos='http://r-forge.r-project.org/')" && rm -rf /tmp/downloaded_packages
 
 # Install Shiny-Server
-wget https://download3.rstudio.org/ubuntu-14.04/x86_64/shiny-server-1.5.14.948-amd64.deb
-sudo gdebi --non-interactive shiny-server-1.5.14.948-amd64.deb
-rm shiny-server-1.5.14.948-amd64.deb
+wget --no-verbose https://download3.rstudio.org/ubuntu-14.04/x86_64/VERSION -O "version.txt"
+VERSION=$(cat version.txt)  
+wget --no-verbose "https://download3.rstudio.org/ubuntu-14.04/x86_64/shiny-server-$VERSION-amd64.deb" -O ss-latest.deb
+sudo gdebi -n ss-latest.deb
+rm -f version.txt ss-latest.deb
 
 # Configure Shiny-Server
 sudo cp shiny-server.conf /etc/shiny-server/shiny-server.conf
