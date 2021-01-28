@@ -77,11 +77,13 @@ R -e "install.packages(c('directlabels','shinydashboard','ggplot2','plotly','sca
      
 R -e "install.packages(c('tidyverse','dplyr','devtools','formatR','remotes','selectr','caTools','BiocManager',repos='https://cran.rstudio.com/', lib='~/R/x86_64-pc-linux-gnu-library/4.0'))"
  
-R -e "install.packages(c('RColorBrewer','RandomFields','RNetCDF','classInt','deldir','gstat','hdf5r','lidR','mapdata','maptools','mapview','ncdf4','proj4','raster','rgdal','rgeos','rlas','sf','sp','spacetime','spatstat','spdep','geoR','geosphere'), repos='http://r-forge.r-project.org/')"
+R -e "install.packages(c('RColorBrewer','RandomFields','RNetCDF','classInt','deldir','gstat','hdf5r','lidR','mapdata','maptools','mapview','ncdf4','proj4','raster','rgdal','rgeos','rlas','sf','sp','spacetime','spatstat','spdep','geoR','geosphere'), repos='http://r-forge.r-project.org/', lib='~/R/x86_64-pc-linux-gnu-library/4.0')"
 
-R -e "install.packages(c('forcats','shinycssloaders','odbc','fs','rlang','tibble','survey','stringr','survey','mosaic','DBI','fs','lubridate','magrittr','yaml','knitr','rmarkdown','testthat'))"
+R -e "install.packages(c('forcats','shinycssloaders','odbc','fs','rlang','tibble','survey','stringr','survey','mosaic','DBI','fs','lubridate','magrittr','yaml','knitr','rmarkdown','testthat'), lib='~/R/x86_64-pc-linux-gnu-library/4.0')"
 
-R -e "install.packages(c('directlabels'), repos='http://r-forge.r-project.org/')" && rm -rf /tmp/downloaded_packages
+R -e "install.packages(c('chron','countrycode','geojsonio','shinythemes','shinyTime'), lib='~/R/x86_64-pc-linux-gnu-library/4.0')"
+
+R -e "install.packages(c('directlabels'), repos='http://r-forge.r-project.org/', lib='~/R/x86_64-pc-linux-gnu-library/4.0')" && rm -rf /tmp/downloaded_packages
 
 # Install Shiny-Server
 wget --no-verbose https://download3.rstudio.org/ubuntu-14.04/x86_64/VERSION -O "version.txt"
