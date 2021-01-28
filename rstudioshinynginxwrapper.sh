@@ -81,7 +81,7 @@ R -e "install.packages(c('RColorBrewer','RandomFields','RNetCDF','classInt','del
 
 R -e "install.packages(c('forcats','shinycssloaders','odbc','fs','rlang','tibble','survey','stringr','survey','mosaic','DBI','fs','lubridate','magrittr','yaml','knitr','rmarkdown','testthat'), lib='~/R/x86_64-pc-linux-gnu-library/4.0')"
 
-R -e "install.packages(c('chron','countrycode','geojsonio','shinythemes','shinyTime'), lib='~/R/x86_64-pc-linux-gnu-library/4.0')"
+R -e "install.packages(c('chron','countrycode','geojsonio','shinythemes','shinyTime','colourpicker','leaflet.minicharts','janitor','polite','rworldmap','shinyAce','treemap'), lib='~/R/x86_64-pc-linux-gnu-library/4.0')"
 
 R -e "install.packages(c('directlabels'), repos='http://r-forge.r-project.org/', lib='~/R/x86_64-pc-linux-gnu-library/4.0')" && rm -rf /tmp/downloaded_packages
 
