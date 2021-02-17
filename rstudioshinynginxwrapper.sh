@@ -101,6 +101,45 @@ mkdir $HOME/shiny
 # Copy sample apps to users new Shiny dir
 cp -r /opt/shiny-server/samples/sample-apps/hello/ ~/shiny
 
+# Install Jupyterhub and JupyterLab in a virtual environment
+sudo apt-get install python3-venv
+sudo python3 -m venv /opt/jupyterhub/
+sudo /opt/jupyterhub/bin/python3 -m pip install wheel
+sudo /opt/jupyterhub/bin/python3 -m pip install jupyterhub jupyterlab
+sudo /opt/jupyterhub/bin/python3 -m pip install ipywidgets
+sudo apt install nodejs npm
+sudo npm install -g configurable-http-proxy
+
+# Create the configuration for JupyterHub
+sudo mkdir -p /opt/jupyterhub/etc/jupyterhub/
+cd /opt/jupyterhub/etc/jupyterhub/
+sudo /opt/jupyterhub/bin/jupyterhub --generate-config
+sudo sed -i "s|# c.Spawner.default_url = ''|c.Spawner.default_url = '/lab'|" /opt/jupyterhub/etc/jupyterhub/jupyterhub_config.py
+sudo sed -i "s|# c.JupyterHub.bind_url = 'http://:8000'|c.JupyterHub.bind_url = 'http://:8000/jupyter'|" /opt/jupyterhub/etc/jupyterhub/jupyterhub_config.py
+
+# Setup Systemd service
+sudo mkdir -p /opt/jupyterhub/etc/systemd
+sudo cp jupyter.service /opt/jupyterhub/etc/systemd/jupyter.service
+sudo ln -s /opt/jupyterhub/etc/systemd/jupyterhub.service /etc/systemd/system/jupyterhub.service
+sudo systemctl daemon-reload
+sudo systemctl enable jupyterhub.service
+sudo systemctl start jupyterhub.service
+sudo systemctl status jupyterhub.service
+
+# Conda environments
+# Install conda for the whole system
+curl https://repo.anaconda.com/pkgs/misc/gpgkeys/anaconda.asc | gpg --dearmor > conda.gpg
+sudo install -o root -g root -m 644 conda.gpg /etc/apt/trusted.gpg.d/
+echo "deb [arch=amd64] https://repo.anaconda.com/pkgs/misc/debrepo/conda stable main" | sudo tee /etc/apt/sources.list.d/conda.list
+sudo apt update
+sudo apt install conda
+sudo ln -s /opt/conda/etc/profile.d/conda.sh /etc/profile.d/conda.sh
+
+# Install a default conda environment for all users
+sudo mkdir /opt/conda/envs/
+sudo /opt/conda/bin/conda create --prefix /opt/conda/envs/python python=3.7 ipykernel
+sudo /opt/conda/envs/python/bin/python -m ipykernel install --prefix=/opt/jupyterhub/ --name 'python' --display-name "Python (default)"
+
 # Restart services
 sudo systemctl restart nginx
 sudo systemctl enable nginx
