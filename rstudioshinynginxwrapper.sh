@@ -112,8 +112,9 @@ sudo npm install -g configurable-http-proxy
 
 # Create the configuration for JupyterHub
 sudo mkdir -p /opt/jupyterhub/etc/jupyterhub/
-cd /opt/jupyterhub/etc/jupyterhub/
+#cd /opt/jupyterhub/etc/jupyterhub/
 sudo /opt/jupyterhub/bin/jupyterhub --generate-config
+sudo cp jupyterhub_config.py /opt/jupyterhub/etc/jupyterhub/jupyterhub_config.py
 sudo sed -i "s|# c.Spawner.default_url = ''|c.Spawner.default_url = '/lab'|" /opt/jupyterhub/etc/jupyterhub/jupyterhub_config.py
 sudo sed -i "s|# c.JupyterHub.bind_url = 'http://:8000'|c.JupyterHub.bind_url = 'http://:8000/jupyter'|" /opt/jupyterhub/etc/jupyterhub/jupyterhub_config.py
 
@@ -144,8 +145,10 @@ sudo /opt/conda/envs/python/bin/python -m ipykernel install --prefix=/opt/jupyte
 sudo systemctl restart nginx
 sudo systemctl enable nginx
 sudo systemctl restart shiny-server
+sudo systemctl restart jupyter.service
 
 #Tell user everything works
 echo "nginx is now hosting a webpage on http://127.0.0.1"
 echo "RStudio Server is now available on http://127.0.0.1:8787 & http://127.0.0.1/rstudio"
 echo "Shiny Server is now available on http://127.0.0.1:3838 & http://127.0.0.1/shiny"
+echo "Jupyterhub is now available on http://127.0.0.1:8000 & http://127.0.0.1/jupyter"
