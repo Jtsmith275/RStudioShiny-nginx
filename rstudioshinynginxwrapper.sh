@@ -120,7 +120,7 @@ sudo sed -i "s|# c.JupyterHub.bind_url = 'http://:8000'|c.JupyterHub.bind_url = 
 
 # Setup Systemd service
 sudo mkdir -p /opt/jupyterhub/etc/systemd
-sudo cp jupyter.service /opt/jupyterhub/etc/systemd/jupyter.service
+sudo cp jupyterhub.service /opt/jupyterhub/etc/systemd/jupyterhub.service
 sudo ln -s /opt/jupyterhub/etc/systemd/jupyterhub.service /etc/systemd/system/jupyterhub.service
 sudo systemctl daemon-reload
 sudo systemctl enable jupyterhub.service
