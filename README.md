@@ -10,6 +10,8 @@
 
 # For JupyterHub:
 
+IF USING ANACONDA FROM GOVERNMENT OR COMMERICAL USE PLEASE ENSURE YOU HAVE A COMMERICAL LICENSE  
+
 1. Follow steps above for RStudio-Server and Shiny-Server
 2. Using the terminal (easiest done in JupyterHub using the launcher), create a conda environment using *conda create -n geospatial* replacing *geospatial* with what you want to call the environment.
 3. Activate the environment using *conda activate geospatial*
