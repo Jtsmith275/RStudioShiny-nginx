@@ -114,13 +114,13 @@ sudo npm install -g configurable-http-proxy
 sudo mkdir -p /opt/jupyterhub/etc/jupyterhub/
 #cd /opt/jupyterhub/etc/jupyterhub/
 sudo /opt/jupyterhub/bin/jupyterhub --generate-config
-sudo cp jupyterhub_config.py /opt/jupyterhub/etc/jupyterhub/jupyterhub_config.py
+sudo cp https://raw.githubusercontent.com/jtsmith275/RStudioShiny-nginx/master/jupyterhub_config.py /opt/jupyterhub/etc/jupyterhub/jupyterhub_config.py
 sudo sed -i "s|# c.Spawner.default_url = ''|c.Spawner.default_url = '/lab'|" /opt/jupyterhub/etc/jupyterhub/jupyterhub_config.py
 sudo sed -i "s|# c.JupyterHub.bind_url = 'http://:8000'|c.JupyterHub.bind_url = 'http://:8000/jupyter'|" /opt/jupyterhub/etc/jupyterhub/jupyterhub_config.py
 
 # Setup Systemd service
 sudo mkdir -p /opt/jupyterhub/etc/systemd
-sudo cp jupyterhub.service /opt/jupyterhub/etc/systemd/jupyterhub.service
+sudo cp https://raw.githubusercontent.com/jtsmith275/RStudioShiny-nginx/master/jupyterhub.service /opt/jupyterhub/etc/systemd/jupyterhub.service
 sudo ln -s /opt/jupyterhub/etc/systemd/jupyterhub.service /etc/systemd/system/jupyterhub.service
 sudo systemctl daemon-reload
 sudo systemctl enable jupyterhub.service
