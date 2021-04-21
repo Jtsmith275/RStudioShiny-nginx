@@ -1,6 +1,6 @@
 # RStudioShiny-nginx
 
-1. wget -O - https://github.com/Jtsmith275/RStudioShiny-nginx/blob/master/rstudioshinynginxwrapper.sh | bash
+1. wget -O - https://raw.githubusercontent.com/jtsmith275/RStudioShiny-nginx/master/rstudioshinynginxwrapper.sh | bash
 1. enter SCE password when prompted  
 1. request intranet hosting on the SCE see https://defra.sharepoint.com/teams/Team741/SitePages/Services.aspx#internal-and-external-hosting  
 
