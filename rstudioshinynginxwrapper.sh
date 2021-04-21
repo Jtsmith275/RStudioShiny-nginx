@@ -125,7 +125,6 @@ sudo ln -s /opt/jupyterhub/etc/systemd/jupyterhub.service /etc/systemd/system/ju
 sudo systemctl daemon-reload
 sudo systemctl enable jupyterhub.service
 sudo systemctl start jupyterhub.service
-sudo systemctl status jupyterhub.service
 
 # Conda environments
 # Install conda for the whole system
