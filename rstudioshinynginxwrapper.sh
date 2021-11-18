@@ -13,8 +13,8 @@ sudo apt-get update && sudo apt-get install r-base r-base-dev -y
 
 # Install RStudio-Server
 sudo apt-get install gdebi-core -y
-wget https://www.rstudio.org/download/latest/stable/server/bionic/rstudio-server-latest-amd64.deb
-sudo gdebi --non-interactive rstudio-server-latest-amd64.deb
+wget https://download2.rstudio.org/server/bionic/amd64/rstudio-server-2021.09.1-372-amd64.deb
+sudo gdebi --non-interactive wget rstudio-server-2021.09.1-372-amd64.deb
 rm rstudio-server-latest-amd64.deb
 
 # Install nginx
@@ -93,7 +93,7 @@ sudo gdebi -n ss-latest.deb
 rm -f version.txt ss-latest.deb
 
 # Configure Shiny-Server
-sudo wget https://raw.githubusercontent.com/jtsmith275/RStudioShiny-nginx/master/defaultshiny-server.conf -O /etc/shiny-server/shiny-server.conf
+sudo wget https://raw.githubusercontent.com/jtsmith275/RStudioShiny-nginx/master/shiny-server.conf -O /etc/shiny-server/shiny-server.conf
 sudo sed -i "s/run_as shiny/run_as $USER/" /etc/shiny-server/shiny-server.conf
 sudo sed -i "s/site_dir \/srv\/shiny-server/site_dir \/home\/$USER\/shiny/" /etc/shiny-server/shiny-server.conf
 mkdir $HOME/shiny
