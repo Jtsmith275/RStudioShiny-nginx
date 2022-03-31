@@ -32,8 +32,8 @@ sudo apt-get update && sudo apt-get install \
     libcairo2-dev \
     libxt-dev \
     libssl-dev \
-    libxml2-dev -y 	
-    
+    libxml2-dev -y
+
 sudo apt-get update \
   && sudo apt-get install \
     lbzip2 \
@@ -46,7 +46,6 @@ sudo apt-get update \
     libhdf4-alt-dev \
     libhdf5-dev \
     libjq-dev \
-    liblwgeom-dev \
     libpq-dev \
     libproj-dev \
     libprotobuf-dev \
@@ -61,9 +60,9 @@ sudo apt-get update \
     unixodbc-dev \
     libv8-dev \
     libnode-dev \
-    libmariadbd-dev \
-    libmariadbclient-dev \
     libcurl4-openssl-dev \
+    default-libmysqlclient-dev \
+    libmysqlclient-dev \
     libssh2-1-dev -y
 
 # add addition system dependencies but suffixing \ <package name> on the end of the apt-get update & apt-get install -y command
@@ -74,9 +73,9 @@ R -e "install.packages('shiny', repos='https://cran.rstudio.com/', lib='~/R/x86_
 
 #Install other common R packages
 R -e "install.packages(c('directlabels','shinydashboard','ggplot2','plotly','scales','forcats','stringr','DT','readxl','tidyr','zoo','lubridate','reshape2','lemon','RColorBrewer','networkD3','shinyWidgets','shinyjs','shinycssloaders','openxlsx','readr','gcookbook','ggrepel','readODS','doBy','rtweet','httpuv','purrr','tm','wordcloud','jsonlite','lda','LDAvis','udpipe','lattice','tidytext','knitr','rmarkdown','readxl','htmltools','bs4Dash'),repos='https://cran.rstudio.com/', lib='~/R/x86_64-pc-linux-gnu-library/4.0')"
-     
+
 R -e "install.packages(c('tidyverse','dplyr','devtools','formatR','remotes','selectr','caTools','BiocManager',repos='https://cran.rstudio.com/', lib='~/R/x86_64-pc-linux-gnu-library/4.0'))"
- 
+
 R -e "install.packages(c('RColorBrewer','RandomFields','RNetCDF','classInt','deldir','gstat','hdf5r','lidR','mapdata','maptools','mapview','ncdf4','proj4','raster','rgdal','rgeos','rlas','sf','sp','spacetime','spatstat','spdep','geoR','geosphere'), repos='http://r-forge.r-project.org/', lib='~/R/x86_64-pc-linux-gnu-library/4.0')"
 
 R -e "install.packages(c('forcats','shinycssloaders','odbc','fs','rlang','tibble','survey','stringr','survey','mosaic','DBI','fs','lubridate','magrittr','yaml','knitr','rmarkdown','testthat'), lib='~/R/x86_64-pc-linux-gnu-library/4.0')"
@@ -87,7 +86,7 @@ R -e "install.packages(c('directlabels'), repos='http://r-forge.r-project.org/',
 
 # Install Shiny-Server
 wget --no-verbose https://download3.rstudio.org/ubuntu-14.04/x86_64/VERSION -O "version.txt"
-VERSION=$(cat version.txt)  
+VERSION=$(cat version.txt)
 wget --no-verbose "https://download3.rstudio.org/ubuntu-14.04/x86_64/shiny-server-$VERSION-amd64.deb" -O ss-latest.deb
 sudo gdebi -n ss-latest.deb
 rm -f version.txt ss-latest.deb
