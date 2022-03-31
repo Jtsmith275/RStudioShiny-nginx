@@ -34,8 +34,7 @@ sudo apt-get update && sudo apt-get install \
     libssl-dev \
     libxml2-dev -y
 
-sudo apt-get update \
-  && sudo apt-get install \
+sudo apt-get update && sudo apt-get install \
     lbzip2 \
     libfftw3-dev \
     libgdal-dev \
