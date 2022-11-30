@@ -68,7 +68,7 @@ sudo apt-get update && sudo apt-get install \
 
 # Install Shiny R package
 mkdir -p ~/R/x86_64-pc-linux-gnu-library/4.2
-R -e "install.packages('shiny', repos='https://cran.rstudio.com/', lib='~/R/x86_64-pc-linux-gnu-library/4.1')"
+R -e "install.packages('shiny', repos='https://cran.rstudio.com/', lib='~/R/x86_64-pc-linux-gnu-library/4.2')"
 
 #Install other common R packages
 R -e "install.packages(c('directlabels','shinydashboard','ggplot2','plotly','scales','forcats','stringr','DT','readxl','tidyr','zoo','lubridate','reshape2','lemon','RColorBrewer','networkD3','shinyWidgets','shinyjs','shinycssloaders','openxlsx','readr','gcookbook','ggrepel','readODS','doBy','rtweet','httpuv','purrr','tm','wordcloud','jsonlite','lda','LDAvis','udpipe','lattice','tidytext','knitr','rmarkdown','readxl','htmltools','bs4Dash'),repos='https://cran.rstudio.com/', lib='~/R/x86_64-pc-linux-gnu-library/4.1')"
@@ -84,9 +84,9 @@ R -e "install.packages(c('chron','countrycode','geojsonio','shinythemes','shinyT
 R -e "install.packages(c('directlabels'), repos='http://r-forge.r-project.org/', lib='~/R/x86_64-pc-linux-gnu-library/4.1')" && rm -rf /tmp/downloaded_packages
 
 # Install Shiny-Server
-wget --no-verbose https://download3.rstudio.org/ubuntu-14.04/x86_64/VERSION -O "version.txt"
+wget --no-verbose https://download3.rstudio.org/ubuntu-18.04/x86_64/VERSION -O "version.txt"
 VERSION=$(cat version.txt)
-wget --no-verbose "https://download3.rstudio.org/ubuntu-14.04/x86_64/shiny-server-$VERSION-amd64.deb" -O ss-latest.deb
+wget --no-verbose "https://download3.rstudio.org/ubuntu-18.04/x86_64/shiny-server-$VERSION-amd64.deb" -O ss-latest.deb
 sudo gdebi -n ss-latest.deb
 rm -f version.txt ss-latest.deb
 
