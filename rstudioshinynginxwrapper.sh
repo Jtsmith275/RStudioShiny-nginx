@@ -67,21 +67,21 @@ sudo apt-get update && sudo apt-get install \
 # add addition system dependencies but suffixing \ <package name> on the end of the apt-get update & apt-get install -y command
 
 # Install Shiny R package
-mkdir -p ~/R/x86_64-pc-linux-gnu-library/4.2
-R -e "install.packages('shiny', repos='https://cran.rstudio.com/', lib='~/R/x86_64-pc-linux-gnu-library/4.2')"
+mkdir -p ~/R/x86_64-pc-linux-gnu-library/4.3
+R -e "install.packages('shiny', repos='https://cran.rstudio.com/', lib='~/R/x86_64-pc-linux-gnu-library/4.3')"
 
 #Install other common R packages
-R -e "install.packages(c('directlabels','shinydashboard','ggplot2','plotly','scales','forcats','stringr','DT','readxl','tidyr','zoo','lubridate','reshape2','lemon','RColorBrewer','networkD3','shinyWidgets','shinyjs','shinycssloaders','openxlsx','readr','gcookbook','ggrepel','readODS','doBy','rtweet','httpuv','purrr','tm','wordcloud','jsonlite','lda','LDAvis','udpipe','lattice','tidytext','knitr','rmarkdown','readxl','htmltools','bs4Dash'),repos='https://cran.rstudio.com/', lib='~/R/x86_64-pc-linux-gnu-library/4.1')"
+R -e "install.packages(c('directlabels','shinydashboard','ggplot2','plotly','scales','forcats','stringr','DT','readxl','tidyr','zoo','lubridate','reshape2','lemon','RColorBrewer','networkD3','shinyWidgets','shinyjs','shinycssloaders','openxlsx','readr','gcookbook','ggrepel','readODS','doBy','rtweet','httpuv','purrr','tm','wordcloud','jsonlite','lda','LDAvis','udpipe','lattice','tidytext','knitr','rmarkdown','readxl','htmltools','bs4Dash'),repos='https://cran.rstudio.com/', lib='~/R/x86_64-pc-linux-gnu-library/4.3')"
 
-R -e "install.packages(c('tidyverse','dplyr','devtools','formatR','remotes','selectr','caTools','BiocManager',repos='https://cran.rstudio.com/', lib='~/R/x86_64-pc-linux-gnu-library/4.1'))"
+R -e "install.packages(c('tidyverse','dplyr','devtools','formatR','remotes','selectr','caTools','BiocManager',repos='https://cran.rstudio.com/', lib='~/R/x86_64-pc-linux-gnu-library/4.3'))"
 
-R -e "install.packages(c('RColorBrewer','RandomFields','RNetCDF','classInt','deldir','gstat','hdf5r','lidR','mapdata','maptools','mapview','ncdf4','proj4','raster','rgdal','rgeos','rlas','sf','sp','spacetime','spatstat','spdep','geoR','geosphere'), repos='http://r-forge.r-project.org/', lib='~/R/x86_64-pc-linux-gnu-library/4.1')"
+R -e "install.packages(c('RColorBrewer','RandomFields','RNetCDF','classInt','deldir','gstat','hdf5r','lidR','mapdata','maptools','mapview','ncdf4','proj4','raster','rgdal','rgeos','rlas','sf','sp','spacetime','spatstat','spdep','geoR','geosphere'), repos='http://r-forge.r-project.org/', lib='~/R/x86_64-pc-linux-gnu-library/4.3')"
 
-R -e "install.packages(c('forcats','shinycssloaders','odbc','fs','rlang','tibble','survey','stringr','survey','mosaic','DBI','fs','lubridate','magrittr','yaml','knitr','rmarkdown','testthat'), lib='~/R/x86_64-pc-linux-gnu-library/4.1')"
+R -e "install.packages(c('forcats','shinycssloaders','odbc','fs','rlang','tibble','survey','stringr','survey','mosaic','DBI','fs','lubridate','magrittr','yaml','knitr','rmarkdown','testthat'), lib='~/R/x86_64-pc-linux-gnu-library/4.3')"
 
-R -e "install.packages(c('chron','countrycode','geojsonio','shinythemes','shinyTime','colourpicker','leaflet.minicharts','janitor','polite','rworldmap','shinyAce','treemap'), lib='~/R/x86_64-pc-linux-gnu-library/4.1')"
+R -e "install.packages(c('chron','countrycode','geojsonio','shinythemes','shinyTime','colourpicker','leaflet.minicharts','janitor','polite','rworldmap','shinyAce','treemap'), lib='~/R/x86_64-pc-linux-gnu-library/4.3')"
 
-R -e "install.packages(c('directlabels'), repos='http://r-forge.r-project.org/', lib='~/R/x86_64-pc-linux-gnu-library/4.1')" && rm -rf /tmp/downloaded_packages
+R -e "install.packages(c('directlabels'), repos='http://r-forge.r-project.org/', lib='~/R/x86_64-pc-linux-gnu-library/4.3')" && rm -rf /tmp/downloaded_packages
 
 # Install Shiny-Server
 wget --no-verbose https://download3.rstudio.org/ubuntu-18.04/x86_64/VERSION -O "version.txt"
