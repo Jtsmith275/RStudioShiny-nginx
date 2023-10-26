@@ -14,7 +14,7 @@ sudo apt-get update && sudo apt-get install r-base r-base-dev -y
 # Install RStudio-Server
 sudo apt-get install gdebi-core -y
 wget https://download2.rstudio.org/server/focal/amd64/rstudio-server-2023.09.1-494-amd64.deb
-sudo gdebi rstudio-server-2023.09.1-494-amd64.deb
+sudo gdebi --non-interactive rstudio-server-2023.09.1-494-amd64.deb
 rm  rstudio-server-2023.09.1-494-amd64.deb
 
 # Install nginx
