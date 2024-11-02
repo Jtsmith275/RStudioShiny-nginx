@@ -4,18 +4,29 @@
 # Update repository list and install R
 sudo apt-get update && sudo apt-get install r-base r-base-dev -y
 
-# Install latest version of RStudio Server
+# Update RStudio Server
 sudo apt-get install gdebi-core -y
-wget https://download2.rstudio.org/server/focal/amd64/rstudio-server-2023.09.1-494-amd64.deb
-sudo gdebi rstudio-server-2023.09.1-494-amd64.deb
-rm  rstudio-server-2023.09.1-494-amd64.deb
+if [[ $(lsb_release -rs) == "20.04" ]]
+then
+    wget https://www.rstudio.org/download/latest/stable/server/focal/rstudio-server-latest-amd64.deb  -O rstudio-latest.deb
+elif [[ $(lsb_release -rs) == "22.04" ]]
+then
+    wget https://www.rstudio.org/download/latest/stable/server/jammy/rstudio-server-latest-amd64.deb  -O rstudio-latest.deb
+elif [[ $(lsb_release -rs) == "24.04" ]]
+then
+    wget https://www.rstudio.org/download/latest/stable/server/jammy/rstudio-server-latest-amd64.deb  -O rstudio-latest.deb
+else
+    echo "Non-compatible version"
+fi
+sudo gdebi --non-interactive rstudio-latest.deb
+rm rstudio-latest.deb
 
-# Install nginx this will update it if there is a new version
+# Update nginx
 sudo apt-get install nginx -y
 
-# Install latest version of Shiny Server
+# Update to latest version of Shiny Server
 sudo apt-get install curl -y
-VERSION=$(curl https://download3.rstudio.org/ubuntu-14.04/x86_64/VERSION)
-wget --no-verbose "https://download3.rstudio.org/ubuntu-14.04/x86_64/shiny-server-$VERSION-amd64.deb" -O shiny-server-latest.deb
+VERSION=$(curl https://download3.rstudio.org/ubuntu-18.04/x86_64/VERSION)
+wget --no-verbose "https://download3.rstudio.org/ubuntu-18.04/x86_64/shiny-server-$VERSION-amd64.deb" -O shiny-server-latest.deb
 sudo gdebi -n shiny-server-latest.deb
 rm shiny-server-latest.deb
