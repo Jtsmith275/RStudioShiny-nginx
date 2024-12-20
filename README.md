@@ -1,5 +1,7 @@
 # RStudioShiny-nginx
 
+## Redundant script please use https://github.com/jb2cool/RStudioShiny-nginx
+
 ## This repo is for single user of RStudio & Shiny and Jupyter Notebooks
 
 1. wget -O - https://raw.githubusercontent.com/jtsmith275/RStudioShiny-nginx/master/rstudioshinynginxwrapper.sh | bash
